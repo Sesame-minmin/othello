@@ -17,6 +17,30 @@
   padding: 5rem 0;
 }
 
+.board {
+  display: flex;
+  width: 640px;
+  height: 640px;
+  background-color: #008000;
+  flex-wrap: wrap;
+}
+
+.cell {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+}
+
+.stone {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
 .footer {
   display: flex;
   align-items: center;
