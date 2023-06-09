@@ -35,7 +35,8 @@ const Home = () => {
         for (let i = 1; i < 8; i++) {
           if (
             board[y + value[0] * i] !== undefined &&
-            board[y + value[0] * i][x + value[1] * i] === turnColor
+            board[y + value[0] * i][x + value[1] * i] === turnColor &&
+            board[y + value[0]][x + value[1]] === 3 - turnColor
           ) {
             for (let j = i - 1; j > 0; j--) {
               newBoard[y + value[0] * j][x + value[1] * j] = turnColor;
