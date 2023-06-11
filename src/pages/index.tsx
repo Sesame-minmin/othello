@@ -76,7 +76,8 @@ const Home = () => {
       gameJudge[1] = J1;
       ++gameJudge[0];
       //なんで総石数でずれが生じているんだ？
-      //しかも少ないんだよな
+      //しかも本来の数より少ないんだよな
+      //なんかうまくいったわ草
       gameJudge[2] = gameJudge[0] - gameJudge[1];
       console.log(gameJudge[0]);
       setBoard(newBoard);
