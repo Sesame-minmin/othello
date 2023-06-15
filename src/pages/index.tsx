@@ -102,6 +102,7 @@ const Home = () => {
   };
 
   return (
+    //<mata name="viewport" content="width=device-width">
     <div className={styles.container}>
       <div className={styles.board}>
         {board.map((row, y) =>
@@ -120,10 +121,13 @@ const Home = () => {
           ))
         )}
       </div>
-      <h1>今は{turnColor === 1 ? '黒' : '白'}の番です</h1>
-      <h2>黒：{judge[1]}枚</h2>
-      <h2>白：{judge[2]}枚</h2>
+      <div className={styles.game}>
+        <h1>今は{turnColor === 1 ? '黒' : '白'}の番です</h1>
+        <h2>黒：{judge[1]}枚</h2>
+        <h2>白：{judge[2]}枚</h2>
+      </div>
     </div>
+    //</mata>
     //ボタン作れ
   );
 };
