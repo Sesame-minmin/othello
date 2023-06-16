@@ -24,6 +24,7 @@ const Home = () => {
     [1, -1],
   ];
   const [judge, setJudge] = useState([4, 2, 2]);
+  const [pass, setPass] = useState([0, 0]);
 
   const onClick = (x: number, y: number) => {
     const newBoard: number[][] = JSON.parse(JSON.stringify(board));
@@ -40,11 +41,6 @@ const Home = () => {
             ++j;
           } else if (
             board[y + value[0] * i] !== undefined &&
-            board[y + value[0] * i][x + value[1] * i] % 3 === 0
-          ) {
-            break;
-          } else if (
-            board[y + value[0] * i] !== undefined &&
             board[y + value[0] * i][x + value[1] * i] === turnColor
           ) {
             if (board[y + value[0] * i][x + value[1] * i] % 3 === 0) {
@@ -53,6 +49,11 @@ const Home = () => {
             for (j - 1; j > 0; j--) {
               newBoard[y + value[0] * j][x + value[1] * j] = turnColor;
             }
+          } else if (
+            board[y + value[0] * i] !== undefined &&
+            board[y + value[0] * i][x + value[1] * i] % 3 === 0
+          ) {
+            break;
           }
         }
       }
@@ -65,6 +66,7 @@ const Home = () => {
       }
 
       let J1 = 0;
+
       for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
           if (newBoard[i][j] === 1) {
@@ -95,12 +97,13 @@ const Home = () => {
     //なんで総石数でずれが生じているんだ？
     //しかも本来の数より少ないんだよな
     //なんかうまくいったわ草
+    //onclick = pass;
     gameJudge[2] = gameJudge[0] - gameJudge[1];
     console.log(gameJudge[0], turnColor);
     setBoard(newBoard);
     setJudge(gameJudge);
   };
-
+  //多分ここにbuttonの話を追加するのかな、多分。
   return (
     //<mata name="viewport" content="width=device-width">
     <div className={styles.container}>
@@ -122,9 +125,15 @@ const Home = () => {
         )}
       </div>
       <div className={styles.game}>
-        <h1>今は{turnColor === 1 ? '黒' : '白'}の番です</h1>
-        <h2>黒：{judge[1]}枚</h2>
-        <h2>白：{judge[2]}枚</h2>
+        {pass.includes(2) || judge[1] + judge[2] === 64 ? (
+          <h1>勝者は{judge[1] > judge[2] ? '黒' : '白'}です</h1>
+        ) : (
+          <h1>今は{turnColor === 1 ? '黒' : '白'}の番です</h1>
+        )}
+        <h2>黒：{judge[1]}枚</h2> <h2>白：{judge[2]}枚</h2>
+      </div>
+      <div className={styles.passbotton}>
+        <h1>パス</h1>
       </div>
     </div>
     //</mata>

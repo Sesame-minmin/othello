@@ -24,6 +24,7 @@
   background-color: #008000;
   flex-wrap: wrap;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .cell {
@@ -41,6 +42,19 @@
   border-radius: 50%;
 }
 
+.passbotton {
+  display: flex;
+  width: 10%;
+  height: 7%;
+  margin: auto;
+  margin-top: 15px;
+  font-size: 100%;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  background-color: #0070f3;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -52,8 +66,10 @@
 
 .game {
   margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
   width: 300px;
-  height: 300px;
+  height: 200px;
 }
 
 .footer > a {
