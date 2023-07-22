@@ -1,4 +1,4 @@
-import { Cell } from '../compornents/cell';
+import { Cell } from '../components/components';
 import { useGame } from '../hooks/useGame';
 import styles from './index.module.css';
 
